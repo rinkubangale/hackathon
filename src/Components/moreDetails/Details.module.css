@@ -1,0 +1,134 @@
+.main{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-height: 450px;
+    width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+
+.container{
+    width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container::before{
+    content: " ";
+    display: table;
+    box-sizing: border-box;
+}
+
+.content_header{
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.content_header::before{
+    content: " ";
+    display: table;
+    box-sizing: border-box;
+}
+.content_header_logo{
+    width: 16.66666667%;
+    align-items: flex-start;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top:15px;
+}
+
+.content_header_logo_1{
+    margin: 0 0 11px;
+}
+.content_header_logo_2{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+.content_header_content{
+    width: 83.33333333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+   
+}
+.content_header_content_main{
+    font-weight: 500;
+    line-height: 1.1;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    box-sizing: border-box;
+    font-family: Imprima,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #666;
+    font-size: 30px;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 5px solid #1976D2;
+    margin: 44px 0 22px;
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.content_header_content_sub{
+    font-size: 18px;
+    box-sizing: border-box;
+    text-align: left;
+}
+.content_main{
+    margin-bottom: 40px;
+    margin-left: -15px;
+    margin-right: -15px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.content_main_1{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
+    width: 50%;
+    margin-bottom: 40px;
+}
+.list_table{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.list_table_header{
+    border-radius: 5px;
+        background-color: rgb(84, 152, 219);
+        border: none;
+        display: block;
+    padding: 10px;
+    line-height: 1.62;
+    
+    border-top: 1px solid #1976D2;
+    border-bottom: 1px solid #1976D2;
+}
+.list_table li{
+    display: block;
+    padding: 10px;
+    line-height: 1.62;
+}
+
+.list_table li:nth-of-type(odd){
+    background-color: rgb(84, 152, 219);
+   
+    display: block;
+    padding: 10px;
+    line-height: 1.62;
+}
