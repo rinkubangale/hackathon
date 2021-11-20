@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Styles from "./Home.module.css";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -7,13 +7,10 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import img1 from "../../imgs/img1.jpg";
-import img2 from "../../imgs/img2.jpg";
-import img3 from "../../imgs/img3.jpg";
-import img4 from "../../imgs/img4.jpg";
 import Chat from "../Chat/Chat";
-
-const imgArr = [img1, img2, img3, img4];
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import CarouselImg from "./Carousel";
+import { auth } from "../../firebase";
 
 export default function BasicTextFields() {
   const [chat, setChat] = useState(false);
@@ -45,11 +42,6 @@ export default function BasicTextFields() {
         noValidate
         autoComplete="off"
       >
-        {/* {
-        imgArr.map((e, i)=>{
-          return <img key={i} src={e} alt="icon" />
-        })
-      } */}
         <TextField
           id="outlined-basic"
           label="From where?"
@@ -83,15 +75,14 @@ export default function BasicTextFields() {
         </Button>
       </Box>
 
-      <div className={Styles.bgslider}>
-        <figure>
-          <img src={img1} alt="Slider" />
-          <img src={img2} alt="Slider" />
-          <img src={img3} alt="Slider" />
-          <img src={img4} alt="Slider" />
-        </figure>
+      {/* //HomePage Carousel .... */}
+      <div style={{ overflow: "hidden", maxHeight: "100vh" }}>
+        <CarouselImg />
       </div>
-      {chat ? (
+
+      {/* //ChatApp .... */}
+      {console.log(auth)}
+      {chat && auth.currentUser ? (
         <div
           style={{
             position: "absolute",
@@ -100,15 +91,17 @@ export default function BasicTextFields() {
             padding: "10px",
             left: "78%",
             background: "white",
-            zIndex:"99"
+            zIndex: "99",
+            borderRadius: "30px",
+            paddingLeft: "12px",
           }}
         >
           <div className={Styles.chatApp}>
-            <div style={{display: "flex"}}>
-            <h3 style={{marginLeft:"25px"}}>Chat</h3>
-            <h1 className={Styles.closeChat} onClick={() => setChat(!chat)}>
-              +
-            </h1>
+            <div style={{ display: "flex" }}>
+              <h3 style={{ marginLeft: "25px" }}>Chat</h3>
+              <h1 className={Styles.closeChat} onClick={() => setChat(!chat)}>
+                +
+              </h1>
             </div>
             <Chat className={Styles.chatApp} />
           </div>
@@ -123,10 +116,14 @@ export default function BasicTextFields() {
             top: "80vh",
             left: "90%",
             background: "transparent",
-            border: "7px solid red",
+            border: "3px solid red",
             cursor: "pointer",
           }}
-          onClick={() => setChat(!chat)}
+          onClick={() => {
+            setChat(!chat);
+            auth.currentUser === null &&
+              alert("You must be logged in to access Chat section");
+          }}
         >
           <img
             className={Styles.imgBot}

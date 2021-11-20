@@ -20,7 +20,7 @@ export default function SendMessage() {
     setMsg("");
   }
   return (
-    <div style={{ position: "absolute", bottom: "0" }}>
+    <div style={{ position: "absolute", bottom: "0", margin: "0px 12px" }}>
       <form onSubmit={sendMessage}>
         <Input
           value={msg}

@@ -28,10 +28,11 @@ export default function Chat() {
           <div
             key={id}
             style={
-              uid === auth.currentUser.uid
+              uid && uid === auth.currentUser.uid
                 ? {
                     display: "flex",
                     flexDirection: "row-reverse",
+                    marginRight: "6px",
                   }
                 : {
                     display: "flex",
@@ -48,7 +49,7 @@ export default function Chat() {
             />
             <p
               style={
-                uid === auth.currentUser.uid
+                uid && uid === auth.currentUser.uid
                   ? {
                       border: "2px solid #1976D2",
                       background: "#1976D2",
