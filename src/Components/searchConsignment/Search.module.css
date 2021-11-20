@@ -1,0 +1,40 @@
+.container{
+    width:90%;
+    min-height:200px;
+    padding:3% 5% 0 5%;
+    color:#626262;
+     /* border: 1px solid red; */
+}
+
+h2{
+    margin-left: 122px;
+}
+.searchDiv{
+    width:80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+input{
+    padding:8%;
+    border-radius: 3px;
+    border: 1px solid rgb(137,185,232);
+}
+.flexDiv{
+    /* border: 1px solid red; */
+   
+    flex-basis: 22%;
+}
+
+.flexDiv>Button{
+    padding:6% 10%;
+}
+
+/*
+.searchresults{
+    width:200px;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+}*/
