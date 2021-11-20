@@ -1,0 +1,69 @@
+.homeBox{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 30vh;
+    left: 18vw;
+    z-index: 1;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255,255,255,0.5) !important;
+}
+
+.bgslider {
+    overflow: hidden;
+}
+
+.bgslider > figure {
+    display: flex;
+    position: relative;
+    width: 400%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slidy infinite;
+}
+
+.bgslider > figure > img {
+    width: 100%;
+    float: left;
+    height: 100vh;
+}
+
+@keyframes slidy {
+    0% {
+        left: 0%;
+    }
+
+    20% {
+        left: 0%;
+    }
+
+    25% {
+        left: -100%;
+    }
+
+    45% {
+        left: -100%;
+    }
+
+    50% {
+        left: -200%;
+    }
+
+    70% {
+        left: -200%;
+    }
+
+    75% {
+        left: -300%;
+    }
+
+    95% {
+        left: -300%;
+    }
+
+    100% {
+        left: -400%;
+    }
+}
