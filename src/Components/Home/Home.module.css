@@ -78,7 +78,8 @@
 
 .closeChat{
     transform: rotate(45deg);
-    margin: 0 0 0 230px;
+    margin: 0 0 0 190px;
+    cursor: pointer;
 }
 
 .closeDis{

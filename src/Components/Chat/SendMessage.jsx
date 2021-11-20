@@ -1,6 +1,6 @@
 import { Input, Button } from "@mui/material";
 import React, { useState } from "react";
-import firebase from "firebase"
+import firebase from "firebase";
 import { db, auth } from "../../firebase";
 
 export default function SendMessage() {
@@ -16,11 +16,11 @@ export default function SendMessage() {
       uid: uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
-      
+
     setMsg("");
   }
   return (
-    <div>
+    <div style={{ position: "absolute", bottom: "0" }}>
       <form onSubmit={sendMessage}>
         <Input
           value={msg}

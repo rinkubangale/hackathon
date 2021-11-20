@@ -104,9 +104,12 @@ export default function BasicTextFields() {
           }}
         >
           <div className={Styles.chatApp}>
+            <div style={{display: "flex"}}>
+            <h3 style={{marginLeft:"25px"}}>Chat</h3>
             <h1 className={Styles.closeChat} onClick={() => setChat(!chat)}>
               +
             </h1>
+            </div>
             <Chat className={Styles.chatApp} />
           </div>
         </div>
