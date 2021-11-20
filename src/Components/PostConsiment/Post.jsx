@@ -4,6 +4,7 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import InputLabel from "@mui/material/InputLabel";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import Select from "@mui/material/Select";
@@ -19,6 +20,7 @@ const style = {
 	border: "2px solid #000",
 	boxShadow: 24,
 	p: 4,
+	overFlow: "scroll",
 };
 
 export default function BasicModal() {
@@ -63,6 +65,7 @@ export default function BasicModal() {
 			)
 			.then((res) => {
 				console.log(res.data);
+				setOpen(false);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -141,6 +144,7 @@ export default function BasicModal() {
 						name="size"
 						label="Age"
 						placeholder=""
+						style={{ margin: "10px 0px 0px 0px", width: "100px" }}
 						onChange={handleAdd}
 					>
 						<MenuItem value={"Small"}>Small</MenuItem>
@@ -166,15 +170,22 @@ export default function BasicModal() {
 					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
 						Transport mode/ vehicle preference
 					</Typography>
-					<TextField
-						required
-						id="outlined-required"
+					<Select
+						labelId="demo-simple-select-label"
+						id="demo-simple-select"
 						value={data.preference}
 						name="preference"
+						label="Preference"
 						placeholder=""
-						style={{ margin: "10px 0px 10px 0px" }}
+						style={{ margin: "10px 0px 0px 0px", width: "150px" }}
 						onChange={handleAdd}
-					/>
+					>
+						<MenuItem value={"Car"}>Car</MenuItem>
+						<MenuItem value={"Bus"}>Bus</MenuItem>
+						<MenuItem value={"Train"}>Train</MenuItem>
+						<MenuItem value={"Flight"}>Flight</MenuItem>
+						<MenuItem value={"Truck"}>Truck</MenuItem>
+					</Select>
 					<br />
 					<Button variant="contained" onClick={handlePost}>
 						Post
