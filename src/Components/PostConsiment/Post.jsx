@@ -70,7 +70,7 @@ export default function BasicModal() {
 	};
 	return (
 		<div>
-			<Button onClick={handleOpen}>Open modal</Button>
+			<Button onClick={handleOpen}>Create a Post</Button>
 			<Modal
 				open={open}
 				onClose={handleClose}
