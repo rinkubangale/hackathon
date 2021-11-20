@@ -2,6 +2,8 @@ import { Button } from "@mui/material";
 import React from "react";
 import Avatar from "@mui/material/Avatar";
 import { auth, signInWithGoogle } from "../../firebase";
+import Styles from "./Navbar.module.css";
+import Post from "../PostConsiment/Post";
 
 export default function Navbar() {
   const [user, setUser] = React.useState(null);
@@ -21,8 +23,11 @@ export default function Navbar() {
   };
 
   return (
-    <div>
+    <div className={Styles.divNav}>
       <div>logo</div>
+      <div>
+        <Post>Make a Post</Post>
+      </div>
       <div>
         {user === null ? (
           <Button variant="outlined" onClick={signInWithGoogle}>

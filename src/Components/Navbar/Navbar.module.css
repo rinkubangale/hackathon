@@ -1,0 +1,19 @@
+
+
+.divNav{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255);
+    width: 100%;
+}
+
+.divNav > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+    width: 50vh;
+}
