@@ -6,6 +6,12 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import img1 from "../../imgs/img1.jpg";
+import img2 from "../../imgs/img2.jpg";
+import img3 from "../../imgs/img3.jpg";
+import img4 from "../../imgs/img4.jpg";
+
+const imgArr = [img1, img2, img3, img4];
 
 export default function BasicTextFields() {
   const defaultData = {
@@ -25,6 +31,7 @@ export default function BasicTextFields() {
   };
   
   return (
+    <>
     <Box className={Styles.homeBox}
       component="form"
       sx={{
@@ -33,6 +40,11 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
+      {/* {
+        imgArr.map((e, i)=>{
+          return <img key={i} src={e} alt="icon" />
+        })
+      } */}
       <TextField id="outlined-basic" label="From where?" variant="outlined" name="from" onChange={handleChange}  />
       <TextField id="outlined-basic" label="To where?" variant="outlined" name="to" onChange={handleChange}  />
      <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -51,5 +63,15 @@ export default function BasicTextFields() {
         Search
       </Button>
       </Box>
+
+      <div className={Styles.bgslider}>
+        <figure>
+            <img src={img1} alt="Slider" />
+            <img src={img2} alt="Slider" />
+            <img src={img3} alt="Slider" />
+            <img src={img4} alt="Slider" />
+        </figure>
+      </div>
+      </>
   );
 }
