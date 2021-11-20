@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+import firebase from "firebase";
 import "firebase/auth";
 
 const firebaseConfig = {
@@ -13,7 +13,10 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+export const db = firebase.firestore();
+
 export const auth = firebase.auth();
+
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 export const signInWithGoogle = () => {
