@@ -59,7 +59,7 @@ export default function BasicModal() {
 					headers: {
 						Authorization:
 							"Bearer " +
-							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTg5MTIwZWY5NGI4NDA3M2NjY2I3YSIsImlhdCI6MTYzNzM4ODYwNX0.1N-ia17_zWVx7e9AcgF6HDbn4nDossQIsCRUCJ1QxE0",
+							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOThhZDk4MWQ2MWIzZTgwYjIyNWM1ZCIsImlhdCI6MTYzNzQwMTA2N30.Sc_6rH-hlJQIkMProR8icLi3PD_HeZVhsxssNUGuHHU",
 					},
 				}
 			)
