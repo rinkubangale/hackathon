@@ -18,11 +18,7 @@ export default function BasicTextFields() {
     date: new Date(""),
   };
 
-  const [data, setData] = React.useState(defaultData);
-
-  // console.log(Date.now());
-
-  const [data, setData] = React.useState(defaultData);
+  const [data, setData] = useState(defaultData);
 
   const handleDate = (e) => {
     setData({ ...data, date: e });

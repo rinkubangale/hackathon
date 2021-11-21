@@ -24,10 +24,10 @@
 .imgDiv>p{
     margin-top: 0;
 }
-img{
+/* img{
     width:60%;
     height:80px;
-}
+} */
 .routeInfo{
     flex-basis: 82%;
 
