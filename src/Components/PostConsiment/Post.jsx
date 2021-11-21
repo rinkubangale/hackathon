@@ -58,8 +58,7 @@ export default function BasicModal() {
 				{
 					headers: {
 						Authorization:
-							"Bearer " +
-							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOThhZDk4MWQ2MWIzZTgwYjIyNWM1ZCIsImlhdCI6MTYzNzQwMTA2N30.Sc_6rH-hlJQIkMProR8icLi3PD_HeZVhsxssNUGuHHU",
+							"Bearer " + JSON.parse(localStorage.getItem("hack")).token,
 					},
 				}
 			)
@@ -151,7 +150,18 @@ export default function BasicModal() {
 						<MenuItem value={"Medium"}>Medium</MenuItem>
 						<MenuItem value={"Large"}>Large</MenuItem>
 					</Select>
-					<p>
+					<p style={{ fontSize: "12px" }}>
+						<span
+							style={{
+								fontStyle: "italic",
+								fontSize: "15px",
+								fontWeight: 600,
+								marginLeft: "10px",
+							}}
+						>
+							i {"   "}
+						</span>
+						{"   "}
 						Small = keys / Medium = phone, book, bag / Large = big box,
 						instrument / Extra large = vehicle, pallet
 					</p>
@@ -177,7 +187,7 @@ export default function BasicModal() {
 						name="preference"
 						label="Preference"
 						placeholder=""
-						style={{ margin: "10px 0px 0px 0px", width: "150px" }}
+						style={{ margin: "10px 0px 10px 0px", width: "150px" }}
 						onChange={handleAdd}
 					>
 						<MenuItem value={"Car"}>Car</MenuItem>
@@ -187,7 +197,11 @@ export default function BasicModal() {
 						<MenuItem value={"Truck"}>Truck</MenuItem>
 					</Select>
 					<br />
-					<Button variant="contained" onClick={handlePost}>
+					<Button
+						variant="contained"
+						onClick={handlePost}
+						style={{ margin: "10px 0px 10px 0px" }}
+					>
 						Post
 					</Button>
 				</Box>
