@@ -6,26 +6,26 @@ import img3 from "../../imgs/img3.jpg";
 import img4 from "../../imgs/img4.jpg";
 
 export default function CarouselImg() {
-  return (
-    <Carousel
-      autoPlay
-      showArrows={false}
-      showIndicators={false}
-      showThumbs={false}
-      infiniteLoop
-    >
-      <div>
-        <img alt="" src={img1} />
-      </div>
-      <div>
-        <img alt="" src={img2} />
-      </div>
-      <div>
-        <img alt="" src={img3} />
-      </div>
-      <div>
-        <img alt="" src={img4} />
-      </div>
-    </Carousel>
-  );
+	return (
+		<Carousel
+			autoPlay
+			showArrows={false}
+			showIndicators={false}
+			showThumbs={false}
+			infiniteLoop
+		>
+			<div>
+				<img alt="" src={img1} style={{ height: "100vh" }} />
+			</div>
+			<div>
+				<img alt="" src={img2} style={{ height: "100vh" }} />
+			</div>
+			<div>
+				<img alt="" src={img3} style={{ height: "100vh" }} />
+			</div>
+			<div>
+				<img alt="" src={img4} style={{ height: "100vh" }} />
+			</div>
+		</Carousel>
+	);
 }
