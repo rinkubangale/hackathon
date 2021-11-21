@@ -9,20 +9,20 @@ import Footer from "../Footer/Footerwrapper";
 import Details from "../moreDetails/Details";
 
 export const Routes = () => {
-	return (
-		<>
-			<Nav />
-			<Switch>
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route exact path="/moredetails/:id">
-					<Details />
-				</Route>
-				<Route exact path="/serachConsiment">
-					<Search />
-				</Route>
-			</Switch>
-		</>
-	);
+  return (
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/moredetails/:id">
+          <Details />
+        </Route>
+        <Route exact path="/serachConsiment">
+          <Search />
+        </Route>
+      </Switch>
+    </>
+  );
 };

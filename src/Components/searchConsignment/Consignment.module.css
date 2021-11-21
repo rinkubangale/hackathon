@@ -24,12 +24,17 @@
 .imgDiv > p {
 	margin-top: 0;
 }
+
 .imgDiv > img {
 	width: 60%;
 	height: 80px;
 }
-.routeInfo {
-	flex-basis: 82%;
+
+
+.routeInfo{
+    flex-basis: 82%;
+
+
 }
 .locationDiv {
 	width: 100%;
