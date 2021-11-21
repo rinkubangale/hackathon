@@ -18,8 +18,10 @@ export default function BasicTextFields() {
   const defaultData = {
     to: "",
     from: "",
-    date: new Date("2021-11-20"),
+    date: new Date(),
   };
+  
+  // console.log(Date.now());
 
   const [data, setData] = React.useState(defaultData);
 
@@ -81,7 +83,7 @@ export default function BasicTextFields() {
       </div>
 
       {/* //ChatApp .... */}
-      {console.log(auth)}
+      {/* {console.log(auth)} */}
       {chat && auth.currentUser ? (
         <div
           style={{
