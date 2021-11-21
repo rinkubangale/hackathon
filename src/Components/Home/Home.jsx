@@ -15,10 +15,12 @@ export default function BasicTextFields() {
 	const defaultData = {
 		to: "",
 		from: "",
-		date: new Date("2021-11-20"),
+		date: new Date(""),
 	};
 
 	const [data, setData] = React.useState(defaultData);
+
+	// console.log(Date.now());
 
 	const handleDate = (e) => {
 		setData({ ...data, date: e });
