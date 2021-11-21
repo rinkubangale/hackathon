@@ -57,8 +57,7 @@ export default function BasicModal() {
 				},
 				{
 					headers: {
-						Authorization:
-							"Bearer " + JSON.parse(localStorage.getItem("hack")).token,
+						Authorization: "Bearer " + JSON.parse(localStorage.getItem("hack")),
 					},
 				}
 			)
@@ -72,7 +71,9 @@ export default function BasicModal() {
 	};
 	return (
 		<div>
-			<Button onClick={handleOpen}>Create a Post</Button>
+			<Button onClick={handleOpen} color="inherit">
+				Create a Post
+			</Button>
 			<Modal
 				open={open}
 				onClose={handleClose}
