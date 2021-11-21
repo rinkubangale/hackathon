@@ -4,8 +4,12 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
+import { Button } from "@mui/material";
+import style from "../moreDetails/Details.module.css";
+import logo from "../../imgs/logo.png";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
+import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -15,6 +19,11 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import Styles from "./Navbar.module.css";
+import Post from "../PostConsiment/Post";
+import Login from "../Login/Login";
+import { useHistory } from "react-router";
+import { auth, signInWithGoogle } from "../../firebase";
 
 const Search = styled("div")(({ theme }) => ({
 	position: "relative",
@@ -63,6 +72,27 @@ export default function PrimarySearchAppBar() {
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+	const [user, setUser] = React.useState(null);
+	const history = useHistory();
+	React.useEffect(() => {
+		auth.onAuthStateChanged(async (user) => {
+			if (user) {
+				console.log(user.displayName, user.email);
+			}
+			setUser(user);
+		});
+	}, [user]);
+
+	const signOut = () => {
+		auth.signOut().then(() => {
+			setUser(null);
+			alert("You have been signed out");
+		});
+	};
+
+	const handleSearch = () => {
+		history.push("/serachConsiment");
+	};
 	const handleProfileMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -79,6 +109,12 @@ export default function PrimarySearchAppBar() {
 	const handleMobileMenuOpen = (event) => {
 		setMobileMoreAnchorEl(event.currentTarget);
 	};
+
+	let temp;
+	if (JSON.parse(localStorage.getItem("hack")) == undefined) {
+		temp = false;
+	}
+	const [userAuth, setUserAuth] = React.useState(temp);
 
 	const menuId = "primary-search-account-menu";
 	const renderMenu = (
@@ -156,78 +192,56 @@ export default function PrimarySearchAppBar() {
 
 	return (
 		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="static" style={{ backgroundColor: "#969899" }}>
+			<AppBar position="static" style={{ backgroundColor: "#2c4f61" }}>
 				<Toolbar>
-					<IconButton
-						size="large"
-						edge="start"
-						color="inherit"
-						aria-label="open drawer"
-						sx={{ mr: 2 }}
-					>
-						<MenuIcon />
-					</IconButton>
+					<div>
+						<p style={{ margin: "5px 0 11px" }}>
+							<img
+								style={{
+									display: "block",
+									width: "70px",
+									height: "40px",
+									verticalAlign: "middle",
+								}}
+								src="https://o.remove.bg/downloads/9753aed0-3033-4f17-84f9-86c23f055804/images-removebg-preview.png"
+								alt="logo"
+							/>
+						</p>
+					</div>
 					<Typography
 						variant="h6"
 						noWrap
 						component="div"
 						sx={{ display: { xs: "none", sm: "block" } }}
+						onClick={history.push("/")}
 					>
-						MUI
+						Travellar PostMan
 					</Typography>
-					<Search>
-						<SearchIconWrapper>
-							<SearchIcon />
-						</SearchIconWrapper>
-						<StyledInputBase
-							placeholder="Search…"
-							inputProps={{ "aria-label": "search" }}
-						/>
-					</Search>
+
 					<Box sx={{ flexGrow: 1 }} />
-					<Box sx={{ display: { xs: "none", md: "flex" } }}>
-						<IconButton
-							size="large"
-							aria-label="show 4 new mails"
-							color="inherit"
-						>
-							<Badge badgeContent={4} color="error">
-								<MailIcon />
-							</Badge>
-						</IconButton>
-						<IconButton
-							size="large"
-							aria-label="show 17 new notifications"
-							color="inherit"
-						>
-							<Badge badgeContent={17} color="error">
-								<NotificationsIcon />
-							</Badge>
-						</IconButton>
-						<IconButton
-							size="large"
-							edge="end"
-							aria-label="account of current user"
-							aria-controls={menuId}
-							aria-haspopup="true"
-							onClick={handleProfileMenuOpen}
-							color="inherit"
-						>
-							<AccountCircle />
-						</IconButton>
-					</Box>
-					<Box sx={{ display: { xs: "flex", md: "none" } }}>
-						<IconButton
-							size="large"
-							aria-label="show more"
-							aria-controls={mobileMenuId}
-							aria-haspopup="true"
-							onClick={handleMobileMenuOpen}
-							color="inherit"
-						>
-							<MoreIcon />
-						</IconButton>
-					</Box>
+					<Post>Make a Post</Post>
+					<Button onClick={handleSearch} color="inherit">
+						Search of Consiment
+					</Button>
+					<Button color="inherit">About</Button>
+					{user === null && <Login color="inherit">Make a Login</Login>}
+					<div>
+						{user === null ? (
+							<Button
+								variant="outlined"
+								onClick={signInWithGoogle}
+								color="inherit"
+							>
+								Sign In
+							</Button>
+						) : (
+							<Avatar
+								src={user.photoURL}
+								onClick={signOut}
+								style={{ cursor: "pointer" }}
+							></Avatar>
+						)}
+					</div>
 				</Toolbar>
 			</AppBar>
 			{renderMobileMenu}

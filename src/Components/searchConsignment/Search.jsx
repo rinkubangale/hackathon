@@ -36,20 +36,6 @@ export default function Search() {
 			});
 	};
 
-	// useEffect(() => {
-	// 	axios
-	// 		.get("http://localhost:2345/post", {
-	// 			from: "Kolkata",
-	// 			to: "Mumbai",
-	// 		})
-	// 		.then((res) => {
-	// 			setData(res.data.post);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// }, []);
-
 	return (
 		<>
 			<div className={styles.container}>

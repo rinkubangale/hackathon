@@ -63,7 +63,9 @@ export default function BasicModal() {
 	};
 	return (
 		<div>
-			<Button onClick={handleOpen}>Login</Button>
+			<Button onClick={handleOpen} color="inherit">
+				Login
+			</Button>
 			<Modal
 				open={open}
 				onClose={handleClose}
