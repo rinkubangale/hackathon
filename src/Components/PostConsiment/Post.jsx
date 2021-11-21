@@ -4,6 +4,7 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import InputLabel from "@mui/material/InputLabel";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 import Select from "@mui/material/Select";
@@ -19,6 +20,7 @@ const style = {
 	border: "2px solid #000",
 	boxShadow: 24,
 	p: 4,
+	overFlow: "scroll",
 };
 
 export default function BasicModal() {
@@ -56,13 +58,13 @@ export default function BasicModal() {
 				{
 					headers: {
 						Authorization:
-							"Bearer " +
-							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTg5MTIwZWY5NGI4NDA3M2NjY2I3YSIsImlhdCI6MTYzNzM4ODYwNX0.1N-ia17_zWVx7e9AcgF6HDbn4nDossQIsCRUCJ1QxE0",
+							"Bearer " + JSON.parse(localStorage.getItem("hack")).token,
 					},
 				}
 			)
 			.then((res) => {
 				console.log(res.data);
+				setOpen(false);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -141,13 +143,25 @@ export default function BasicModal() {
 						name="size"
 						label="Age"
 						placeholder=""
+						style={{ margin: "10px 0px 0px 0px", width: "100px" }}
 						onChange={handleAdd}
 					>
 						<MenuItem value={"Small"}>Small</MenuItem>
 						<MenuItem value={"Medium"}>Medium</MenuItem>
 						<MenuItem value={"Large"}>Large</MenuItem>
 					</Select>
-					<p>
+					<p style={{ fontSize: "12px" }}>
+						<span
+							style={{
+								fontStyle: "italic",
+								fontSize: "15px",
+								fontWeight: 600,
+								marginLeft: "10px",
+							}}
+						>
+							i {"   "}
+						</span>
+						{"   "}
 						Small = keys / Medium = phone, book, bag / Large = big box,
 						instrument / Extra large = vehicle, pallet
 					</p>
@@ -166,17 +180,28 @@ export default function BasicModal() {
 					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
 						Transport mode/ vehicle preference
 					</Typography>
-					<TextField
-						required
-						id="outlined-required"
+					<Select
+						labelId="demo-simple-select-label"
+						id="demo-simple-select"
 						value={data.preference}
 						name="preference"
+						label="Preference"
 						placeholder=""
-						style={{ margin: "10px 0px 10px 0px" }}
+						style={{ margin: "10px 0px 10px 0px", width: "150px" }}
 						onChange={handleAdd}
-					/>
+					>
+						<MenuItem value={"Car"}>Car</MenuItem>
+						<MenuItem value={"Bus"}>Bus</MenuItem>
+						<MenuItem value={"Train"}>Train</MenuItem>
+						<MenuItem value={"Flight"}>Flight</MenuItem>
+						<MenuItem value={"Truck"}>Truck</MenuItem>
+					</Select>
 					<br />
-					<Button variant="contained" onClick={handlePost}>
+					<Button
+						variant="contained"
+						onClick={handlePost}
+						style={{ margin: "10px 0px 10px 0px" }}
+					>
 						Post
 					</Button>
 				</Box>
